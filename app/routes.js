@@ -12,7 +12,12 @@ router.get('/user/:id', (req, res) => {
     const userId = idx(req, _ => _.params.id)
     const userData = userModel.getUserById(Number(userId))
 
-    res.json({data: userData})
+    if (!userData) {
+        res.statusCode = 404
+        return res.json('can not get user')
+    }
+
+    return res.json({data: userData})
 })
 
 module.exports = router
