@@ -1,22 +1,15 @@
-// We will need to add sequelize latter
+const {
+    USER_MAIN_DATA,
+    USER_LAST_SESSIONS
+} = require('./data')
 
-const DATA = [
-    {
-        id: 12,
-        firstName: 'Thomas',
-        lastName: 'Dimnet',
-        age: 31
-    },
-    {
-        id: 18,
-        firstName: 'Jérôme',
-        lastName: 'Dimnet',
-        age: 34
-    }
-]
+const getUserById = id => USER_MAIN_DATA.filter(user => user.id === id).shift()
 
-getUserById = id => {
-    return DATA.filter(user => user.id === id).shift()
+const getUserLastSession = userId => {
+    return USER_LAST_SESSIONS.filter(session => session.userId === userId)
 }
 
-module.exports = {getUserById}
+module.exports = {
+    getUserById,
+    getUserLastSession
+}
