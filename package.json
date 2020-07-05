@@ -5,5 +5,12 @@
   "main": "index/app.js",
   "repository": "https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git",
   "author": "tdimnet <thomas.dimnet@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.3.0"
+  }
 }
