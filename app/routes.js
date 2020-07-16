@@ -5,8 +5,13 @@ const router = express.Router()
 
 const {
     getUserById,
-    getUserLastSession
+    getUserActivityById,
+    getUserAverageSession
 } = require('./models')
+
+const {
+    handleNoUserData
+} = require('./middleware')
 
 /**
  * Retrieve main info about a user
@@ -15,28 +20,46 @@ router.get('/user/:id', (req, res) => {
     const userId = idx(req, _ => _.params.id)
     const userData = getUserById(Number(userId))
 
-    if (!userData) {
-        res.statusCode = 404
-        return res.json('can not get user')
-    }
-
-    return res.json({data: userData})
+    return handleNoUserData(res, userData)
 })
 
 
-/**
- * Retrieve last session for a user
- */
-router.get('/user/:id/sessions', (req, res) => {
+router.get('/user/:id/activity', (req, res) => {
     const userId = idx(req, _ => _.params.id)
-    const userData = getUserLastSession(Number(userId))
+    const userData = getUserActivityById(Number(userId))
 
-    if (!userData) {
-        res.statusCode = 404
-        return res.json('can not get user')
-    }
+    return handleNoUserData(res, userData)
+})
 
-    return res.json({data: userData})
+router.get('/user/:id/average-sessions', (req, res) => {
+    const userId = idx(req, _ => _.params.id)
+    const userData = getUserAverageSession(Number(userId))
+
+    return handleNoUserData(res, userData)
+})
+
+router.get('/user/:id/today-score', (req, res) => {
+    console.log("====")
+    console.log('today-score')
+    console.log("====")
+
+    return res.json({res: 'ok'})
+})
+
+router.get('/user/:id/activities', (req, res) => {
+    console.log("====")
+    console.log('activities')
+    console.log("====")
+
+    return res.json({res: 'ok'})
+})
+
+router.get('/user/:id/key-data', (req, res) => {
+    console.log("====")
+    console.log('key-data')
+    console.log("====")
+
+    return res.json({res: 'ok'})
 })
 
 module.exports = router
