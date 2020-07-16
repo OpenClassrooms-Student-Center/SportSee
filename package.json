@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "idx": "^2.5.6",
-    "sequelize": "^6.3.0"
+    "idx": "^2.5.6"
   },
   "scripts": {
-    "dev": "node_modules/.bin/nodemon app/index.js"
+    "dev": "node_modules/.bin/nodemon app/index.js",
+    "start": "node app/index.js"
   }
 }
