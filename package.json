@@ -1,0 +1,20 @@
+{
+  "name": "P9-front-end-dashboard",
+  "version": "1.0.0",
+  "description": "Backend for the 9th project of the new path Front-end Developper",
+  "main": "index/app.js",
+  "repository": "https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git",
+  "author": "tdimnet <thomas.dimnet@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "idx": "^2.5.6"
+  },
+  "scripts": {
+    "dev": "node_modules/.bin/nodemon app/index.js",
+    "start": "node app/index.js"
+  }
+}
