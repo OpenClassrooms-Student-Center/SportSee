@@ -2,8 +2,8 @@ const USER_MAIN_DATA = [
     {
         id: 12,
         userInfos: {
-            firstName: 'Thomas',
-            lastName: 'Dimnet',
+            firstName: 'Karl',
+            lastName: 'Dovineau',
             age: 31,
         },
         todayScore: 0.12,
@@ -16,9 +16,9 @@ const USER_MAIN_DATA = [
     },
     {
         id: 18,
-        todayScore: {
-            firstName: 'Jérôme',
-            lastName: 'Dimnet',
+        userInfos: {
+            firstName: 'Cecilia',
+            lastName: 'Ratorez',
             age: 34,
         },
         score: 0.3,
