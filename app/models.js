@@ -4,12 +4,25 @@ const {
     USER_AVERAGE_SESSIONS
 } = require('./data')
 
+/**
+ * @description Retrieve the main user info (first name, last name)
+ * @param {number} id 
+ */
 const getUserById = id => USER_MAIN_DATA.filter(user => user.id === id).shift()
 
+/**
+ * @description Retrieve the activity of a user
+ * @param {number} id 
+ */
 const getUserActivityById = id => USER_ACTIVITY.filter(userActivity => userActivity.userId === id).shift()
 
-
+/**
+ * @description Retrieve the sessions of a user
+ * @param {number} id 
+ */
 const getUserAverageSession = id => USER_AVERAGE_SESSIONS.filter(userActivity => userActivity.userId === id).shift()
+
+
 
 module.exports = {
     getUserById,

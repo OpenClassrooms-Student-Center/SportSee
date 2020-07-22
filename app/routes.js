@@ -13,9 +13,7 @@ const {
     handleNoUserData
 } = require('./middleware')
 
-/**
- * Retrieve main info about a user
- */
+
 router.get('/user/:id', (req, res) => {
     const userId = idx(req, _ => _.params.id)
     const userData = getUserById(Number(userId))
@@ -31,12 +29,14 @@ router.get('/user/:id/activity', (req, res) => {
     return handleNoUserData(res, userData)
 })
 
+
 router.get('/user/:id/average-sessions', (req, res) => {
     const userId = idx(req, _ => _.params.id)
     const userData = getUserAverageSession(Number(userId))
 
     return handleNoUserData(res, userData)
 })
+
 
 router.get('/user/:id/today-score', (req, res) => {
     console.log("====")
@@ -46,6 +46,7 @@ router.get('/user/:id/today-score', (req, res) => {
     return res.json({res: 'ok'})
 })
 
+
 router.get('/user/:id/activities', (req, res) => {
     console.log("====")
     console.log('activities')
@@ -53,6 +54,7 @@ router.get('/user/:id/activities', (req, res) => {
 
     return res.json({res: 'ok'})
 })
+
 
 router.get('/user/:id/key-data', (req, res) => {
     console.log("====")
