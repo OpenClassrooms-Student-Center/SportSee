@@ -1,6 +1,6 @@
 # Project 9 - Front-end Dashboard
 
-This repo contains all the source code to run the Project 9 micro API.
+This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.
 
 ## 1. General information
 
@@ -17,8 +17,8 @@ If you are working with several versions of NodeJS, we recommend you install [nv
 
 ### 2.2 Launching the project
 
-- Forker the repository
-- Clone it into your computer.
+- Forke the repository
+- Clone it on your computer.
 - The `yarn` command will allow you to install the dependencies.
 - The `yarn dev` command will allow you to run the micro API.
 
@@ -60,5 +60,5 @@ This project includes four endpoints that you will be able to use:
 
 ### 4.2 Examples of queries
 
-- `http://localhost:3000/user/12/performances` - Retrieves the performance of the user with id 12
-- `http://localhost:3000/user/18` - Retrieves the user's main information 18.
+- `http://localhost:3000/user/12/performance` - Retrieves the performance of the user with id 12
+- `http://localhost:3000/user/18` - Retrieves user 18's main information.
