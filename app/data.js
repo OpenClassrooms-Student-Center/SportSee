@@ -3,13 +3,27 @@ const USER_MAIN_DATA = [
         id: 12,
         firstName: 'Thomas',
         lastName: 'Dimnet',
-        age: 31
+        age: 31,
+        score: 0.12,
+        keyData: {
+            calorieCount: 1930,
+            proteinCount: 155,
+            carbohydrateCount: 290,
+            lipidCount: 50
+        }
     },
     {
         id: 18,
         firstName: 'Jérôme',
         lastName: 'Dimnet',
-        age: 34
+        age: 34,
+        score: 0.3,
+        keyData: {
+            calorieCount: 2500,
+            proteinCount: 90,
+            carbohydrateCount: 150,
+            lipidCount: 120
+        }
     }
 ]
 
@@ -165,6 +179,9 @@ const USER_AVERAGE_SESSIONS = [
         ]
     }
 ]
+
+
+
 
 
 

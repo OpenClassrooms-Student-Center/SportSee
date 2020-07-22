@@ -38,30 +38,13 @@ router.get('/user/:id/average-sessions', (req, res) => {
 })
 
 
-router.get('/user/:id/today-score', (req, res) => {
+router.get('/user/:id/performances', (req, res) => {
     console.log("====")
-    console.log('today-score')
-    console.log("====")
-
-    return res.json({res: 'ok'})
-})
-
-
-router.get('/user/:id/activities', (req, res) => {
-    console.log("====")
-    console.log('activities')
+    console.log('performances')
     console.log("====")
 
     return res.json({res: 'ok'})
 })
 
-
-router.get('/user/:id/key-data', (req, res) => {
-    console.log("====")
-    console.log('key-data')
-    console.log("====")
-
-    return res.json({res: 'ok'})
-})
 
 module.exports = router

@@ -5,7 +5,7 @@ const {
 } = require('./data')
 
 /**
- * @description Retrieve the main user info (first name, last name)
+ * @description Retrieve the main user info (first name, last name, today score)
  * @param {number} id 
  */
 const getUserById = id => USER_MAIN_DATA.filter(user => user.id === id).shift()
@@ -21,7 +21,6 @@ const getUserActivityById = id => USER_ACTIVITY.filter(userActivity => userActiv
  * @param {number} id 
  */
 const getUserAverageSession = id => USER_AVERAGE_SESSIONS.filter(userActivity => userActivity.userId === id).shift()
-
 
 
 module.exports = {
