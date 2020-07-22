@@ -43,3 +43,22 @@ Finally, if you have VsCode, you can easily launch your project in a docker envi
 You will need the [Remote Development extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). Once you have this extension installed, just click on the `Reopen in Container` button.
 
 Once in the container, run the `yarn dev` command.
+
+## 4. Endpoints
+
+### 4.1 Possible endpoints
+
+This project includes four endpoints that you will be able to use: 
+
+- `http://localhost:3000/user/${userId}` - retrieves information from a user.
+- `http://localhost:3000/user/${userId}/activity` - retrieves a user's activity day by day with kilograms and calories.
+- `http://localhost:3000/user/${userId}/average-sessions` - retrieves the average sessions of a user per day.
+- `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
+
+
+**Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.**
+
+### 4.2 Examples of queries
+
+- `http://localhost:3000/user/12/performances` - Retrieves the performance of the user with id 12
+- `http://localhost:3000/user/18` - Retrieves the user's main information 18.
