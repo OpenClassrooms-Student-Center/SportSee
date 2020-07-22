@@ -6,16 +6,15 @@ const router = express.Router()
 const {
     getUserById,
     getUserActivityById,
-    getUserAverageSession
+    getUserAverageSession,
+    getUserPerformance
 } = require('./models')
 
 const {
     handleNoUserData
 } = require('./middleware')
 
-/**
- * Retrieve main info about a user
- */
+
 router.get('/user/:id', (req, res) => {
     const userId = idx(req, _ => _.params.id)
     const userData = getUserById(Number(userId))
@@ -31,6 +30,7 @@ router.get('/user/:id/activity', (req, res) => {
     return handleNoUserData(res, userData)
 })
 
+
 router.get('/user/:id/average-sessions', (req, res) => {
     const userId = idx(req, _ => _.params.id)
     const userData = getUserAverageSession(Number(userId))
@@ -38,28 +38,13 @@ router.get('/user/:id/average-sessions', (req, res) => {
     return handleNoUserData(res, userData)
 })
 
-router.get('/user/:id/today-score', (req, res) => {
-    console.log("====")
-    console.log('today-score')
-    console.log("====")
 
-    return res.json({res: 'ok'})
+router.get('/user/:id/performances', (req, res) => {
+    const userId = idx(req, _ => _.params.id)
+    const userData = getUserPerformance(Number(userId))
+
+    return handleNoUserData(res, userData)
 })
 
-router.get('/user/:id/activities', (req, res) => {
-    console.log("====")
-    console.log('activities')
-    console.log("====")
-
-    return res.json({res: 'ok'})
-})
-
-router.get('/user/:id/key-data', (req, res) => {
-    console.log("====")
-    console.log('key-data')
-    console.log("====")
-
-    return res.json({res: 'ok'})
-})
 
 module.exports = router
