@@ -1,10 +1,12 @@
 const USER_MAIN_DATA = [
     {
         id: 12,
-        firstName: 'Thomas',
-        lastName: 'Dimnet',
-        age: 31,
-        score: 0.12,
+        userInfos: {
+            firstName: 'Thomas',
+            lastName: 'Dimnet',
+            age: 31,
+        },
+        todayScore: 0.12,
         keyData: {
             calorieCount: 1930,
             proteinCount: 155,
@@ -14,9 +16,11 @@ const USER_MAIN_DATA = [
     },
     {
         id: 18,
-        firstName: 'Jérôme',
-        lastName: 'Dimnet',
-        age: 34,
+        todayScore: {
+            firstName: 'Jérôme',
+            lastName: 'Dimnet',
+            age: 34,
+        },
         score: 0.3,
         keyData: {
             calorieCount: 2500,
@@ -181,12 +185,88 @@ const USER_AVERAGE_SESSIONS = [
 ]
 
 
-
+const USER_PERFORMANCE = [
+    {
+        userId: 12,
+        kind: {
+            1: 'cardio',
+            2: 'energy',
+            3: 'endurance',
+            4: 'strength',
+            5: 'speed',
+            6: 'intensity'
+        },
+        data: [
+            {
+                value: 80,
+                kind: 1
+            },
+            {
+                value: 120,
+                kind: 2
+            },
+            {
+                value: 140,
+                kind: 3
+            },
+            {
+                value: 50,
+                kind: 4
+            },
+            {
+                value: 200,
+                kind: 5
+            },
+            {
+                value: 90,
+                kind: 6
+            }
+        ]
+    },
+    {
+        userId: 18,
+        kind: {
+            1: 'cardio',
+            2: 'energy',
+            3: 'endurance',
+            4: 'strength',
+            5: 'speed',
+            6: 'intensity'
+        },
+        data: [
+            {
+                value: 200,
+                kind: 1
+            },
+            {
+                value: 240,
+                kind: 2
+            },
+            {
+                value: 80,
+                kind: 3
+            },
+            {
+                value: 80,
+                kind: 4
+            },
+            {
+                value: 220,
+                kind: 5
+            },
+            {
+                value: 110,
+                kind: 6
+            }
+        ]
+    }
+]
 
 
 
 module.exports = {
     USER_MAIN_DATA,
     USER_ACTIVITY,
-    USER_AVERAGE_SESSIONS
+    USER_AVERAGE_SESSIONS,
+    USER_PERFORMANCE
 }

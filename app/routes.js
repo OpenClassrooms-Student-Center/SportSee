@@ -6,7 +6,8 @@ const router = express.Router()
 const {
     getUserById,
     getUserActivityById,
-    getUserAverageSession
+    getUserAverageSession,
+    getUserPerformance
 } = require('./models')
 
 const {
@@ -39,11 +40,10 @@ router.get('/user/:id/average-sessions', (req, res) => {
 
 
 router.get('/user/:id/performances', (req, res) => {
-    console.log("====")
-    console.log('performances')
-    console.log("====")
+    const userId = idx(req, _ => _.params.id)
+    const userData = getUserPerformance(Number(userId))
 
-    return res.json({res: 'ok'})
+    return handleNoUserData(res, userData)
 })
 
 
