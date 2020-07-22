@@ -39,7 +39,7 @@ router.get('/user/:id/average-sessions', (req, res) => {
 })
 
 
-router.get('/user/:id/performances', (req, res) => {
+router.get('/user/:id/performance', (req, res) => {
     const userId = idx(req, _ => _.params.id)
     const userData = getUserPerformance(Number(userId))
 
