@@ -63,12 +63,12 @@ function Sessions(props) {
 
 
     return (
-        <ResponsiveContainer width="37%" height="37%">
+        <ResponsiveContainer width={258} height="69%">
             <LineChart style={{ backgroundColor: "#FF0000", borderRadius: "5px" }} data={sessionsFormated} margin={{ top: 120, right: -1, left: -62, bottom: 50 }} >
                 <defs>
-                    <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="0">
-                        <stop offset="40%" stopColor="#FFFFFF" stopOpacity={1} />
-                        <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.1} />
+                    <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="1">
+                        <stop offset="20%" stopColor="#FFFFFF" stopOpacity={0.9} />
+                        <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.4} />
                     </linearGradient>
                 </defs>
                 <CartesianGrid vertical={false} horizontal={false} />

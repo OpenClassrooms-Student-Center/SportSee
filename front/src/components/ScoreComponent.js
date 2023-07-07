@@ -17,11 +17,11 @@ function Score(props) {
         return null;
     }
     return (
-        <ResponsiveContainer width="37%" height="37%">
+        <ResponsiveContainer width={258} height="69%">
 
-            <RadialBarChart cx="50%" cy="50%" style={{ backgroundColor: "#FBFBFB", borderRadius: "5px" }} width="100%" height="100%" data={[{ score: score }]} innerRadius={100} barSize={10} startAngle={80} endAngle={450} >
+            <RadialBarChart cx="50%" cy="50%" style={{ backgroundColor: "#FBFBFB", borderRadius: "5px" }} width="100%" height="100%" data={[{ score: score }]} innerRadius={110} outerRadius={80} barSize={10} startAngle={80} endAngle={450} >
 
-                <circle cx="50%" cy="50%" fill="#FFFFFF" r="100" ></circle>
+                <circle cx="50%" cy="50%" fill="#FFFFFF" r="80" ></circle>
 
                 <PolarAngleAxis type='number' domain={[0, 100]} angleAxisId={1} tick={false} />
 
@@ -37,7 +37,7 @@ function Score(props) {
                     Score </text>
 
             </RadialBarChart>
-        </ResponsiveContainer>
+        </ResponsiveContainer >
     )
 }
 

@@ -43,15 +43,15 @@ function Performance(props) {
         return null;
     }
     return (
-        <ResponsiveContainer width="37%" height="37%">
+        <ResponsiveContainer width={258} height="69%">
 
-            <RadarChart style={{ backgroundColor: "#282D30", borderRadius: "5px" }} data={performance}>
+            <RadarChart style={{ backgroundColor: "#282D30", borderRadius: "5px" }} data={performance} innerRadius={20} outerRadius={90}>
 
                 <PolarGrid radialLines={false} />
 
-                <PolarAngleAxis dataKey="kind" tickFormatter={namePerformance} tickLine={false} axisLine={false} dy={5} stroke="#FFF" tick={{ fill: "#FFFFFF", fontSize: 12 }} />
+                <PolarAngleAxis dataKey="kind" tickFormatter={namePerformance} tickLine={false} axisLine={false} dy={4} stroke="#FFF" tick={{ fill: "#FFFFFF", fontSize: 12 }} />
 
-                <PolarRadiusAxis tick={false} tickCount={6} axisLine={false} />
+                <PolarRadiusAxis tick={false} tickCount={5} axisLine={false} />
 
                 <Radar dataKey="value" fill="#FF0101" fillOpacity={0.6} />
 

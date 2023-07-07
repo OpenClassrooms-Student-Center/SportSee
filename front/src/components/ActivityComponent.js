@@ -38,7 +38,7 @@ function Activity(props) {
         return null;
     }
     return (
-        <ResponsiveContainer width={835} height="40%">
+        <ResponsiveContainer width={835} height="85%" minWidth={400} >
             <BarChart
                 width={835}
                 height={320}

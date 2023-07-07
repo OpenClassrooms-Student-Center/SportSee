@@ -46,21 +46,21 @@ function Home() {
         <div style={{ display: "flex" }}>
             <AsideBar />
             <div className="home_container">
-                <div>
+                <div className="graph_title">
                     <h1>Bonjour&nbsp;
                         <span style={{ color: "#FF0101" }}>{mainData && mainData.firstName}</span>
                     </h1>
-                    <span style={{ fontSize: "18px", marginBottom: "77px" }}>Félicitation ! Vous avez explosé vos objectifs hier 👏</span>
+                    <span style={{ fontSize: "18px" }}>Félicitation ! Vous avez explosé vos objectifs hier 👏</span>
                 </div>
                 <div className="graphic_zone">
                     <div className="main_block">
-                        <div style={{ display: "flex", width: "100%", height: "100%" }}>
+                        <div className="activity_block">
                             <ActivityComponent activity={activity} />
                         </div>
                         <div className="graphic">
-                            {/*<SessionsComponent averageSessions={averageSessions} />
+                            <SessionsComponent averageSessions={averageSessions} />
                             <PerformanceComponent performance={performance} />
-    <ScoreComponent score={mainData && mainData.score} />*/}
+                            <ScoreComponent score={mainData && mainData.score} />
                         </div>
                     </div>
                     <section className="right_info">

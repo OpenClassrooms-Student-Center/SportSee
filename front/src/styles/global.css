@@ -71,7 +71,8 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 45px;
+  width: auto;
+  gap: 47px;
 }
 
 .calories,
@@ -144,6 +145,7 @@ img {
   background: #ffffff;
   display: flex;
   flex-direction: column;
+  margin-left: 107px;
 }
 
 .graphic_zone {
@@ -162,8 +164,25 @@ img {
   height: 100%;
 }
 
+.activity_block {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
 .graphic {
   display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
   gap: 30px;
-  margin-top: 35px;
+}
+
+.recharts-layer .recharts-radial-bar-background path {
+  fill: #fbfbfb !important;
+}
+
+.graph_title {
+  display: flex;
+  flex-direction: column;
 }
