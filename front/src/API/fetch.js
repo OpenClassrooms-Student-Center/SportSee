@@ -4,6 +4,7 @@ import { getDataMocked } from "../API/fetchData"
 /**
  * 
  * @param {number} id 
+ * @param {string} type
  * @returns new class data
  */
 

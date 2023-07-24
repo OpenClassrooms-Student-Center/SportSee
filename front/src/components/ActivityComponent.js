@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import useResponsive from "../components/hooks/useResponsive";
+
+/**
+ * 
+ * @param {boolean} active
+ * @param {array} payload
+ * @returns an activity tooltip or null
+ */
 
 const CustomTooltip = ({ active, payload, }) => {
     if (active && payload && payload.length) {
@@ -14,9 +22,46 @@ const CustomTooltip = ({ active, payload, }) => {
     return null;
 };
 
+/**
+ * 
+ * @param {Object} props contains the activity data 
+ * @returns a bar chart with the activity data 
+ */
+
 function Activity(props) {
 
     const [activityFormated, setActivityFormated] = useState([]);
+
+    const { windowWidth, screenType } = useResponsive();
+
+    // Set the chart size depending on the screen type
+    const chartSizes = () => {
+        if (screenType === "DESKTOP") {
+            return {
+                width: 835,
+                height: 320,
+                aspect: 3,
+            };
+        } else if (screenType === "TABLET") {
+            return {
+                width: 600,
+                height: 320,
+                aspect: 2,
+            };
+        } else if (screenType === "MOBILE") {
+            return {
+                width: windowWidth * 0.8,
+                height: 120,
+                aspect: 1,
+            };
+        } else {
+            return {
+                width: 0,
+                height: 0,
+                aspect: 0,
+            };
+        }
+    };
 
     useEffect(() => {
         const temporaryActivityFormated = [];
@@ -37,10 +82,10 @@ function Activity(props) {
     if (activityFormated.length <= 0) {
         return null;
     }
+
     return (
-        <ResponsiveContainer width={835} height="85%" minWidth={400} >
+        <ResponsiveContainer width={chartSizes().width} height={chartSizes().height} aspect={chartSizes().aspect}>
             <BarChart
-                width={835}
                 height={320}
                 data={activityFormated}
                 margin={{

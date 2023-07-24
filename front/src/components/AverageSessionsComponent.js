@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
+import useResponsive from "../components/hooks/useResponsive";
+
+/**
+ * 
+ * @param {boolean} active
+ * @param {array} payload
+ * @returns an activity tooltip or null
+ */
 
 const CustomTooltip = ({ active, payload, }) => {
     if (active && payload && payload.length) {
@@ -13,9 +21,20 @@ const CustomTooltip = ({ active, payload, }) => {
     return null;
 };
 
+/**
+ * 
+ * @param {array} points
+ * @returns a rectangle to highlight the cursor position
+ */
+
 const CustomCursor = ({ points }) => {
     return <Rectangle fill="#000000" opacity={0.2} x={points[1].x} width={1000} height={400} />;
 };
+
+/**
+ * @param {object} day 
+ * @returns day name
+ */
 
 function nameDay(day) {
     switch (day) {
@@ -38,9 +57,43 @@ function nameDay(day) {
     }
 }
 
+/**
+ * 
+ * @param {Object} props contains the sessions data
+ * @returns a line chart with the sessions data
+ */
+
+
 function Sessions(props) {
 
     const [sessionsFormated, setSessionsFormated] = useState([])
+
+    const { windowWidth, screenType } = useResponsive();
+
+    // Set the chart size depending on the screen type
+    const chartSizes = () => {
+        if (screenType === "DESKTOP") {
+            return {
+                width: 258,
+                height: 263,
+            };
+        } else if (screenType === "TABLET") {
+            return {
+                width: 180,
+                height: 181,
+            };
+        } else if (screenType === "MOBILE") {
+            return {
+                width: windowWidth * 0.8,
+                height: 120,
+            };
+        } else {
+            return {
+                width: 0,
+                height: 0,
+            };
+        }
+    };
 
     useEffect(() => {
         if (props.averageSessions) {
@@ -63,7 +116,7 @@ function Sessions(props) {
 
 
     return (
-        <ResponsiveContainer width={258} height="69%">
+        <ResponsiveContainer width={chartSizes().width} height={chartSizes().height} aspect={1}>
             <LineChart style={{ backgroundColor: "#FF0000", borderRadius: "5px" }} data={sessionsFormated} margin={{ top: 120, right: -1, left: -62, bottom: 50 }} >
                 <defs>
                     <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="1">

@@ -10,4 +10,5 @@ export default class MainData {
         this.glucide = data.keyData.carbohydrateCount;
         this.lipide = data.keyData.lipidCount
     }
+
 }

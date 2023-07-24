@@ -13,7 +13,6 @@ import AsideBar from "../components/AsideBar.js";
 
 function Home() {
 
-
     const { id } = useParams();
     const { type } = useParams();
     const [mainData, setMainData] = useState();
@@ -58,9 +57,15 @@ function Home() {
                             <ActivityComponent activity={activity} />
                         </div>
                         <div className="graphic">
-                            <SessionsComponent averageSessions={averageSessions} />
-                            <PerformanceComponent performance={performance} />
-                            <ScoreComponent score={mainData && mainData.score} />
+                            <div style={{ flex: 1 }}>
+                                <SessionsComponent averageSessions={averageSessions} />
+                            </div>
+                            <div style={{ flex: 1 }}>
+                                <PerformanceComponent performance={performance} />
+                            </div>
+                            <div style={{ flex: 1 }}>
+                                <ScoreComponent score={mainData && mainData.score} />
+                            </div>
                         </div>
                     </div>
                     <section className="right_info">

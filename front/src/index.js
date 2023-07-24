@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Header from './components/Header';
-import AsideBar from './components/AsideBar';
 import "./styles/global.css";
 
 const root = createRoot(document.getElementById('root'));
