@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import UserChoice from './pages/UserChoice';
 import Header from './components/Header';
 import "./styles/global.css";
 
@@ -11,6 +12,7 @@ root.render(
     <div className='App'>
       <Header />
       <Routes>
+        <Route path="/" element={<UserChoice />} />
         <Route path="/user/:id" element={<Home />} />
       </Routes>
     </div>
