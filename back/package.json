@@ -12,7 +12,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "idx": "^2.5.6"
+    "idx": "^2.5.6",
+    "yarn": "^1.22.19"
   },
   "scripts": {
     "dev": "node_modules/.bin/nodemon app/index.js",

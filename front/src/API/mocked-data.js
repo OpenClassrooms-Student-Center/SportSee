@@ -6,7 +6,7 @@ const USER_MAIN_DATA = [
             lastName: 'Dovineau',
             age: 31,
         },
-        todayScore: 0.12,
+        score: 0.12,
         keyData: {
             calorieCount: 1930,
             proteinCount: 155,
@@ -189,12 +189,12 @@ const USER_PERFORMANCE = [
     {
         userId: 12,
         kind: {
-            1: 'cardio',
-            2: 'energy',
-            3: 'endurance',
-            4: 'strength',
-            5: 'speed',
-            6: 'intensity'
+            1: 'intensity',
+            2: 'speed',
+            3: 'strength',
+            4: 'endurance',
+            5: 'energy',
+            6: 'cardio'
         },
         data: [
             {
@@ -226,12 +226,12 @@ const USER_PERFORMANCE = [
     {
         userId: 18,
         kind: {
-            1: 'cardio',
-            2: 'energy',
-            3: 'endurance',
-            4: 'strength',
-            5: 'speed',
-            6: 'intensity'
+            1: 'intensity',
+            2: 'speed',
+            3: 'strength',
+            4: 'endurance',
+            5: 'energy',
+            6: 'cardio'
         },
         data: [
             {
@@ -262,11 +262,4 @@ const USER_PERFORMANCE = [
     }
 ]
 
-
-
-module.exports = {
-    USER_MAIN_DATA,
-    USER_ACTIVITY,
-    USER_AVERAGE_SESSIONS,
-    USER_PERFORMANCE
-}
+export { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE }

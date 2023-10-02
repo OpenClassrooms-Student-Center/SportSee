@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+}
+
+.App {
+  margin: auto;
+  max-width: 1440px;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  color: white;
+  font-weight: 500;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-right: 70px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.nutri {
+  margin: 0;
+  font-weight: bold;
+  color: #74798c;
+}
+
+.custom-tooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  background-color: #e60000;
+  color: white;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+.custom-tooltip2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  color: black;
+  width: 55px;
+  height: 25px;
+  padding: 8px;
+  font-weight: 500;
+  outline-style: none;
+}
+
+.recharts-responsive-container {
+  background-color: #fbfbfb !important;
+}
+
+.recharts-legend-item-text {
+  color: #74798c !important;
+}
+
+.right_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: auto;
+  gap: 39px;
+}
+
+.calories,
+.proteines,
+.glucides,
+.lipides {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbfbfb;
+  width: 240px;
+  height: 124px;
+  border-radius: 5px;
+  gap: 24px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.img_container1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #fbeaea;
+  border-radius: 5px;
+}
+
+.img_container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #e9f4fb;
+  border-radius: 5px;
+}
+
+.img_container3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #fbf6e5;
+  border-radius: 5px;
+}
+
+.img_container4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #fbeaef;
+  border-radius: 5px;
+}
+
+.home_container {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-left: 107px;
+  margin-top: 8px;
+}
+
+.graphic_zone {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.main_block {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.activity_block {
+  display: flex;
+}
+
+.graphic {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.recharts-layer .recharts-radial-bar-background path {
+  fill: #fbfbfb !important;
+}
+
+.graph_title {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .home_container {
+    margin-left: 60px;
+  }
+
+  .calories,
+  .proteines,
+  .glucides,
+  .lipides {
+    width: 200px;
+    height: 103.5px;
+  }
+}
+
+.user-choice {
+  text-align: center;
+  margin-top: 10rem;
+  font-size: 36px;
+}
+
+.user-choice a {
+  color: white;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+.user-choice p:hover {
+  transform: scale(1.1);
+  transition: transform 200ms;
+}
+.user-choice p {
+  background-color: #e60000;
+  border: 1px solid #ffffff;
+  padding: 0.5rem;
+  width: 150px;
+  border-radius: 25px;
+  margin: 2rem auto 1rem auto;
+  transform: scale(1);
+}
