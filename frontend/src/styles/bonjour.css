@@ -1,0 +1,16 @@
+.bonjour {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+.bonjour-title {
+  display: flex;
+  font-weight: 500;
+  font-size: 48px;
+  gap: 0.8rem;
+}
+.prénom {
+  color: #ff0101;
+}

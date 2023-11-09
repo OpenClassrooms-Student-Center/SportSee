@@ -1,0 +1,50 @@
+.activity-chart {
+  width: 70%;
+  height: 40%;
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 4px 0px #00000005;
+  border-radius: 10px;
+  position: relative;
+  padding: 2rem 2rem 0 2rem;
+  gap: 2rem;
+}
+.title-and-legend {
+  width: 100%;
+}
+.recharts-default-legend {
+  display: flex;
+  justify-content: flex-end;
+}
+.recharts-default-legend li {
+  display: flex !important;
+  align-items: center !important;
+}
+.recharts-legend-wrapper {
+  position: relative !important;
+}
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+}
+
+.activity-chart-title {
+  font-size: 15px;
+}
+
+.custom-tooltip {
+  background-color: #e60000;
+  padding: 0.8rem;
+  color: white;
+  font-size: 0.6rem;
+  height: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

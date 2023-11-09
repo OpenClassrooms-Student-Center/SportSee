@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+.body-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 3rem 6rem;
+  gap: 2rem;
+}

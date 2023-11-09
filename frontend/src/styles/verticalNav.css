@@ -1,0 +1,34 @@
+.vertical-menu {
+  background-color: black;
+  width: 7rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.vertical-navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.vertical-navbar img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  writing-mode: vertical-lr;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 5%;
+  left: 45%;
+  transform: rotate(-180deg);
+}

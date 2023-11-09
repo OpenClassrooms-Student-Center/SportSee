@@ -1,0 +1,32 @@
+.sessions-chart {
+  width: 30%;
+  height: 40%;
+  background-color: #ff0000;
+  border-radius: 5px;
+}
+.session-tooltip {
+  background-color: white;
+  color: black;
+  font-size: 0.8rem;
+  height: 3rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recharts-wrapper {
+  overflow: hidden;
+}
+.recharts-tooltip-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  left: auto !important;
+  right: 0 !important;
+  transform: translate(0) !important;
+  overflow: hidden;
+  padding: 1rem;
+  background-color: rgba(208, 46, 46, 0.5);
+}
