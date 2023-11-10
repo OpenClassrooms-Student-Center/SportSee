@@ -47,4 +47,9 @@
     height: 2rem;
     width: 3rem;
   }
+  .sessions-chart-title {
+    top: 1rem;
+    left: 1rem;
+    font-size: 15px;
+  }
 }
