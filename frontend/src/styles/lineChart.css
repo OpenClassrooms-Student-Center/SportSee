@@ -30,6 +30,7 @@
   overflow: hidden;
   padding: 1rem;
   background-color: rgba(208, 46, 46, 0.5);
+  min-width: 5rem;
 }
 
 .sessions-chart-title {
@@ -45,8 +46,5 @@
     font-size: 0.6rem;
     height: 2rem;
     width: 3rem;
-  }
-  .sessions-chart .recharts-tooltip-wrapper {
-    min-width: 5rem;
   }
 }
