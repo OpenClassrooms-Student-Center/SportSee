@@ -1,8 +1,9 @@
 .sessions-chart {
-  width: 30%;
-  height: 40%;
+  width: 31%;
+  height: 100%;
   background-color: #ff0000;
   border-radius: 5px;
+  position: relative;
 }
 .session-tooltip {
   background-color: white;
@@ -18,7 +19,7 @@
 .recharts-wrapper {
   overflow: hidden;
 }
-.recharts-tooltip-wrapper {
+.sessions-chart .recharts-tooltip-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,4 +30,23 @@
   overflow: hidden;
   padding: 1rem;
   background-color: rgba(208, 46, 46, 0.5);
+}
+
+.sessions-chart-title {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: white;
+  width: 40%;
+  opacity: 0.5;
+}
+@media (max-width: 1024px) {
+  .session-tooltip {
+    font-size: 0.6rem;
+    height: 2rem;
+    width: 3rem;
+  }
+  .sessions-chart .recharts-tooltip-wrapper {
+    min-width: 5rem;
+  }
 }

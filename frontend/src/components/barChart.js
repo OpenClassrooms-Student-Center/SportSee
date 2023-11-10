@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import {
   BarChart,
   Bar,
@@ -59,8 +59,8 @@ const dataWithIndex = data[0].sessions.map((entry, index) => ({
 }));
 console.dir(dataWithIndex);
 
-export default class ChartbarGraph extends PureComponent {
-  customTooltip = (data) => {
+const ChartbarGraph = () => {
+  const customTooltip = (data) => {
     if (!data.active || data.payload.length === 0) {
       return null;
     }
@@ -81,56 +81,54 @@ export default class ChartbarGraph extends PureComponent {
     );
   };
 
-  render() {
-    return (
-      <div className='activity-chart'>
-        <div className='chart-header'>
-          <p className='activity-chart-title'>Activité quotidienne</p>
-          <Legend
-            formatter={(value, entry) => (
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <div style={{ fontSize: '14px', color: '#74798C' }}>
-                  {value}
-                </div>
-              </div>
-            )}
-            align='right'
-            verticalAlign='top'
-            payload={[
-              { value: 'Poids (kg)', type: 'circle', color: '#282D30' },
-              {
-                value: 'Calories brûlées (kCal)',
-                type: 'circle',
-                color: '#E60000',
-              },
-            ]}
-            iconSize={9}
-          />
-        </div>
-        <ResponsiveContainer
-          className='responsive-container'
-          width='100%'
-          height='60%'>
-          <BarChart data={dataWithIndex}>
-            <CartesianGrid strokeDasharray='3 3' vertical={false} />
-            <XAxis dataKey={'index'} />
-            <YAxis orientation='right' />
-            <Tooltip content={this.customTooltip} />
-            <Bar
-              dataKey='kilogram'
-              fill='#282D30'
-              radius={[15, 15, 0, 0]}
-              barSize={10}
-            />
-            <Bar
-              dataKey='calories'
-              fill='#E60000'
-              radius={[15, 15, 0, 0]}
-              barSize={10}
-            />
-          </BarChart>
-        </ResponsiveContainer>
+  return (
+    <div className='activity-chart'>
+      <div className='chart-header'>
+        <p className='activity-chart-title'>Activité quotidienne</p>
+        <Legend
+          formatter={(value, entry) => (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ fontSize: '14px', color: '#74798C' }}>{value}</div>
+            </div>
+          )}
+          align='right'
+          verticalAlign='top'
+          payload={[
+            { value: 'Poids (kg)', type: 'circle', color: '#282D30' },
+            {
+              value: 'Calories brûlées (kCal)',
+              type: 'circle',
+              color: '#E60000',
+            },
+          ]}
+          iconSize={9}
+        />
       </div>
-    );
-  }
-}
+      <ResponsiveContainer
+        className='responsive-container'
+        width='100%'
+        height='100%'>
+        <BarChart data={dataWithIndex}>
+          <CartesianGrid strokeDasharray='3 3' vertical={false} />
+          <XAxis dataKey={'index'} />
+          <YAxis orientation='right' />
+          <Tooltip content={customTooltip} />
+          <Bar
+            dataKey='kilogram'
+            fill='#282D30'
+            radius={[3, 3, 0, 0]}
+            barSize={10}
+          />
+          <Bar
+            dataKey='calories'
+            fill='#E60000'
+            radius={[3, 3, 0, 0]}
+            barSize={10}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
+
+export default ChartbarGraph;

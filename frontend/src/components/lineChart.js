@@ -87,6 +87,7 @@ const LineBarChart = () => {
 
   return (
     <div className='sessions-chart'>
+      <p className='sessions-chart-title'>Durée moyenne des sessions</p>
       <ResponsiveContainer width='100%' height='100%'>
         <LineChart
           width={500}
@@ -114,7 +115,6 @@ const LineBarChart = () => {
             axisLine={false}
             tickLine={false}
           />
-
           <Tooltip
             isAnimationActive={false}
             content={<CustomTooltip />}
@@ -130,7 +130,6 @@ const LineBarChart = () => {
             filter={false}
             payload={data[0].sessions}
           />
-
           <Line
             type='monotoneX'
             dataKey='sessionLength'

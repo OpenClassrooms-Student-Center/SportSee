@@ -27,3 +27,14 @@ li {
   font-size: 24px;
   font-weight: 500;
 }
+@media (max-width: 1024px) {
+  .header {
+    height: auto;
+  }
+  .logo {
+    height: 2rem;
+  }
+  li {
+    font-size: 20px;
+  }
+}

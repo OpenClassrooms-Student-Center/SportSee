@@ -17,10 +17,42 @@
 }
 .charts-container {
   display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 3rem 6rem;
+  padding: 0 4rem 0 6rem;
   gap: 2rem;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.layout-charts-global-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 71%;
+  padding: 3rem 0;
+}
+.layout-charts-details-container {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .layout-charts-global-container {
+    padding: 0rem 0 3rem 0;
+    justify-content: space-evenly;
+  }
+  .layout-charts-details-container {
+    height: 32%;
+  }
+  .charts-container {
+    padding: 0 4rem;
+  }
 }

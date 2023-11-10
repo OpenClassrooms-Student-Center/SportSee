@@ -32,3 +32,13 @@
   left: 45%;
   transform: rotate(-180deg);
 }
+
+@media (max-width: 1024px) {
+  .vertical-menu {
+    width: 10%;
+  }
+  .vertical-navbar img {
+    width: 50%;
+    height: auto;
+  }
+}
