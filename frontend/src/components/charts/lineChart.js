@@ -2,49 +2,49 @@ import React, { useState } from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import '../../styles/lineChart.css';
 
-// const data = [
-//   {
-//     userId: 12,
-//     sessions: [
-//       {
-//         day: '',
-//         sessionLength: 10,
-//       },
-//       {
-//         day: 1,
-//         sessionLength: 30,
-//       },
-//       {
-//         day: 2,
-//         sessionLength: 23,
-//       },
-//       {
-//         day: 3,
-//         sessionLength: 45,
-//       },
-//       {
-//         day: 4,
-//         sessionLength: 50,
-//       },
-//       {
-//         day: 5,
-//         sessionLength: 0,
-//       },
-//       {
-//         day: 6,
-//         sessionLength: 0,
-//       },
-//       {
-//         day: 7,
-//         sessionLength: 60,
-//       },
-//       {
-//         day: '',
-//         sessionLength: 80,
-//       },
-//     ],
-//   },
-// ];
+const data = [
+  {
+    userId: 12,
+    sessions: [
+      {
+        day: '',
+        sessionLength: 10,
+      },
+      {
+        day: 1,
+        sessionLength: 30,
+      },
+      {
+        day: 2,
+        sessionLength: 23,
+      },
+      {
+        day: 3,
+        sessionLength: 45,
+      },
+      {
+        day: 4,
+        sessionLength: 50,
+      },
+      {
+        day: 5,
+        sessionLength: 0,
+      },
+      {
+        day: 6,
+        sessionLength: 0,
+      },
+      {
+        day: 7,
+        sessionLength: 60,
+      },
+      {
+        day: '',
+        sessionLength: 80,
+      },
+    ],
+  },
+];
 const dayLabels = ['L', 'M', 'M', 'J', 'V', 'S', 'D']; // Mappage des jours de la semaine
 
 const CustomTooltip = ({ active, payload }) => {
@@ -79,7 +79,6 @@ const LineBarChart = ({ graphData }) => {
       // Calcul de la largeur en fonction de la position de la souris sur l'axe X
       const tooltipWidth = 100 - e.activePayload[0].payload.day * 10;
       setMouseX(tooltipWidth);
-      console.log(tooltipWidth);
     } else {
       setMouseX(null);
     }
@@ -92,7 +91,7 @@ const LineBarChart = ({ graphData }) => {
         <LineChart
           width={500}
           height={300}
-          data={graphData}
+          data={data[0].sessions}
           margin={{
             top: 10,
             right: 1,

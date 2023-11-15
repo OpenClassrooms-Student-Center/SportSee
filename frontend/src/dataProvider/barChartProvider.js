@@ -1,15 +1,26 @@
-class BarChartGraphDtoMock {
+import { useState, useEffect } from 'react';
+import BarChartGraph from '../components/charts/barChart';
+
+export function UserBarChart({ userId }) {
+  const [dto, setDto] = useState(new BarChartGraphDto([], graphLegend));
+
+  useEffect(() => {
+    getCalories(userId).then(setDto, () => {
+      setDto(new BarChartGraphDto(graphData[0].sessions, graphLegend));
+    });
+  }, [userId]);
+
+  return (
+    <BarChartGraph graphData={dto.graphData} graphLegend={dto.graphLegend} />
+  );
+}
+
+class BarChartGraphDto {
   constructor(data, legend) {
     this.graphData = data;
     this.graphLegend = legend;
   }
 }
-
-// class BarChartGraphDto {
-//   constructor(data, legend){
-
-//   }
-// }
 
 const graphData = [
   {
@@ -17,43 +28,42 @@ const graphData = [
     sessions: [
       {
         value: '2020-07-01',
-        axeX: 80,
-        axeY: 240,
+        axeX: 40,
+        axeY: 40,
       },
       {
         value: '2020-07-02',
-        axeX: 80,
-        axeY: 220,
+        axeX: 20,
+        axeY: 120,
       },
       {
         value: '2020-07-03',
-        axeX: 81,
-        axeY: 280,
+        axeX: 71,
+        axeY: 80,
       },
       {
         value: '2020-07-04',
-        axeX: 81,
-        axeY: 290,
+        axeX: 51,
+        axeY: 190,
       },
       {
         value: '2020-07-05',
-        axeX: 80,
-        axeY: 160,
+        axeX: 40,
+        axeY: 260,
       },
       {
         value: '2020-07-06',
-        axeX: 78,
-        axeY: 162,
+        axeX: 98,
+        axeY: 62,
       },
       {
         value: '2020-07-07',
-        axeX: 76,
-        axeY: 390,
+        axeX: 86,
+        axeY: 190,
       },
     ],
   },
 ];
-
 const graphLegend = {
   title: 'Activité quotidienne',
   titleX: 'Poids(kg)',
@@ -62,12 +72,17 @@ const graphLegend = {
   hoverTitleY: 'kCal',
 };
 
-function getCalories() {
-  // const userId = fetch('http://localhost:3000/user/:id')
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data));
+async function getCalories(userId) {
+  const data = await fetch(`http://localhost:3000/user/${userId}/activity`);
+  const USER_ACTIVITY = await data.json();
 
-  return new BarChartGraphDtoMock(graphData[0].sessions, graphLegend);
+  return new BarChartGraphDto(
+    USER_ACTIVITY.data.sessions.map(({ kilogram, calories }) => ({
+      axeX: kilogram,
+      axeY: calories,
+    })),
+    graphLegend
+  );
 }
 
 export default getCalories;

@@ -11,27 +11,29 @@ import {
 } from 'recharts';
 import '../../styles/barChart.css';
 
+function CustomTooltip(props) {
+  const { payload, active, graphLegend } = props;
+
+  if (!payload || !active) {
+    return null;
+  }
+
+  const valueX = payload.find((entry) => entry.dataKey === 'axeX')?.value;
+  const valueY = payload.find((entry) => entry.dataKey === 'axeY')?.value;
+
+  return (
+    <div className='custom-tooltip'>
+      <p>{valueX + graphLegend.hoverTitleX}</p>
+      <p>{valueY + graphLegend.hoverTitleY}</p>
+    </div>
+  );
+}
+
 const BarChartGraph = ({ graphData, graphLegend }) => {
   const graphDataIndexed = graphData.map((entry, index) => ({
     ...entry,
     index: index + 1,
   }));
-  const customTooltip = (data) => {
-    if (!data.active || data.payload.length === 0) {
-      return null;
-    }
-
-    const { payload } = data;
-    const valueX = payload.find((entry) => entry.dataKey === 'axeX').value;
-    const valueY = payload.find((entry) => entry.dataKey === 'axeY').value;
-
-    return (
-      <div className='custom-tooltip'>
-        <p>{valueX + graphLegend.hoverTitleX}</p>
-        <p>{valueY + graphLegend.hoverTitleY}</p>
-      </div>
-    );
-  };
 
   return (
     <div className='activity-chart'>
@@ -64,7 +66,7 @@ const BarChartGraph = ({ graphData, graphLegend }) => {
           <CartesianGrid strokeDasharray='3 3' vertical={false} />
           <XAxis dataKey={'index'} />
           <YAxis orientation='right' />
-          <Tooltip content={customTooltip} />
+          <Tooltip content={<CustomTooltip graphLegend={graphLegend} />} />
           <Bar
             dataKey='axeX'
             fill='#282D30'

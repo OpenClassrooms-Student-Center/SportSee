@@ -1,6 +1,5 @@
 import './App.css';
 import Alimentation from './components/alimentation.js';
-import BarChartGraph from './components/charts/barChart.js';
 import Bonjour from './components/bonjour.js';
 import HorizontalNav from './components/horizontalNav.js';
 import LineBarChart from './components/charts/lineChart.js';
@@ -11,12 +10,10 @@ import img1 from './img/calories-icon.png';
 import img2 from './img/protein-icon.png';
 import img3 from './img/carbs-icon.png';
 import img4 from './img/fat-icon.png';
-import getCalories from './dataProvider/barChartProvider.js';
-import getActivity from './dataProvider/lineChartProvider.js';
+import { UserBarChart } from './dataProvider/barChartProvider.js';
 
 function App() {
-  const barChartGraphDto = getCalories();
-  const lineChartGraphDto = getActivity();
+  const userId = window.location.pathname.split('user/').pop();
 
   return (
     <div className='App'>
@@ -27,12 +24,9 @@ function App() {
           <Bonjour />
           <div className='charts-container'>
             <div className='layout-charts-global-container'>
-              <BarChartGraph
-                graphData={barChartGraphDto.graphData}
-                graphLegend={barChartGraphDto.graphLegend}
-              />
+              <UserBarChart userId={userId} />
               <div className='layout-charts-details-container'>
-                <LineBarChart graphData={lineChartGraphDto.graphData} />
+                <LineBarChart />
                 <SimpleRadarChart />
                 <RadialChart />
               </div>
