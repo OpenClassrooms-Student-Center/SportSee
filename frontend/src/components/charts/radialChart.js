@@ -1,6 +1,6 @@
 import React from 'react';
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
-import '../styles/radialChart.css';
+import '../../styles/radialChart.css';
 
 const data = [
   {

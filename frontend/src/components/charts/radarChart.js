@@ -7,7 +7,7 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from 'recharts';
-import '../styles/radarChart.css';
+import '../../styles/radarChart.css';
 const data = [
   {
     userId: 12,
@@ -53,7 +53,6 @@ const capitalizeFirstLetter = (word) => {
 
 const formatKindName = (index) => capitalizeFirstLetter(data[0].kind[index]);
 
-console.log(data[0].data.map((kind) => kind.kind));
 const SimpleRadarChart = () => {
   const fontSize = window.innerWidth > 1024 ? 12 : 10;
   return (
