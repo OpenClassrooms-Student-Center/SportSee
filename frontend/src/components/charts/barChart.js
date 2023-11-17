@@ -64,7 +64,7 @@ const BarChartGraph = ({ graphData, graphLegend }) => {
         height='100%'>
         <BarChart data={graphDataIndexed}>
           <CartesianGrid strokeDasharray='3 3' vertical={false} />
-          <XAxis dataKey={'index'} />
+          <XAxis dataKey={'index'} tickLine={false} />
           <YAxis orientation='right' />
           <Tooltip content={<CustomTooltip graphLegend={graphLegend} />} />
           <Bar

@@ -2,49 +2,6 @@ import React, { useState } from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import '../../styles/lineChart.css';
 
-const data = [
-  {
-    userId: 12,
-    sessions: [
-      {
-        day: '',
-        sessionLength: 10,
-      },
-      {
-        day: 1,
-        sessionLength: 30,
-      },
-      {
-        day: 2,
-        sessionLength: 23,
-      },
-      {
-        day: 3,
-        sessionLength: 45,
-      },
-      {
-        day: 4,
-        sessionLength: 50,
-      },
-      {
-        day: 5,
-        sessionLength: 0,
-      },
-      {
-        day: 6,
-        sessionLength: 0,
-      },
-      {
-        day: 7,
-        sessionLength: 60,
-      },
-      {
-        day: '',
-        sessionLength: 80,
-      },
-    ],
-  },
-];
 const dayLabels = ['L', 'M', 'M', 'J', 'V', 'S', 'D']; // Mappage des jours de la semaine
 
 const CustomTooltip = ({ active, payload }) => {
@@ -52,7 +9,7 @@ const CustomTooltip = ({ active, payload }) => {
     const dataPoint = payload[0].payload;
     return (
       <div className='session-tooltip'>
-        <p className='label'>{`${dataPoint.sessionLength} min`}</p>
+        <p className='label'>{`${dataPoint.axeY} min`}</p>
       </div>
     );
   }
@@ -77,7 +34,8 @@ const LineBarChart = ({ graphData }) => {
   const handleMouseMove = (e) => {
     if (e.activeLabel) {
       // Calcul de la largeur en fonction de la position de la souris sur l'axe X
-      const tooltipWidth = 100 - e.activePayload[0].payload.day * 10;
+      const tooltipWidth = 100 - e.activePayload[0].payload.axeX * 10;
+
       setMouseX(tooltipWidth);
     } else {
       setMouseX(null);
@@ -91,7 +49,7 @@ const LineBarChart = ({ graphData }) => {
         <LineChart
           width={500}
           height={300}
-          data={data[0].sessions}
+          data={graphData}
           margin={{
             top: 10,
             right: 1,
@@ -107,7 +65,7 @@ const LineBarChart = ({ graphData }) => {
             </linearGradient>
           </defs>
           <XAxis
-            dataKey='day'
+            dataKey='axeX'
             domain={['dataMin', 'dataMax']}
             tickFormatter={formatXAxis}
             tick={xAxisTickStyle}
@@ -131,7 +89,7 @@ const LineBarChart = ({ graphData }) => {
           />
           <Line
             type='monotoneX'
-            dataKey='sessionLength'
+            dataKey='axeY'
             stroke='url(#lineGradient)'
             strokeWidth={1.5}
             dot={false}
