@@ -1,17 +1,3 @@
-// export function UserBarChart({ userId }) {
-//   const [dto, setDto] = useState(new BarChartGraphDto([], graphLegend));
-
-//   useEffect(() => {
-//     getCalories(userId).then(setDto, () => {
-//       setDto(new BarChartGraphDtoMock(graphData[0].sessions, graphLegend));
-//     });
-//   }, [userId]);
-
-//   return (
-//     <BarChartGraph graphData={dto.graphData} graphLegend={dto.graphLegend} />
-//   );
-// }
-
 class BarChartDTO {
   constructor(data, legend) {
     this.graphData = data;
@@ -30,17 +16,8 @@ class RadarChartDTO {
     this.formattedData = formattedData;
   }
 }
-class RadialChartDTO {
-  constructor(data) {
-    this.graphData = data;
-  }
-}
 class MainDataDTO {
   constructor(data) {
-    // this.calorieCount = data.keyData.calorieCount;
-    // this.carbohydrateCount = data.keyData.carbohydrateCount;
-    // this.lipidCount = data.keyData.lipidCount;
-    // this.proteinCount = data.keyData.proteinCount;
     this.graphData = data;
   }
 }
@@ -182,7 +159,7 @@ const graphDataMain = [
   {
     id: 12,
     userInfos: {
-      firstName: 'Karl',
+      firstName: 'Thomas',
       lastName: 'Dovineau',
       age: 31,
     },
@@ -294,6 +271,7 @@ class DataProvider {
       const formattedData = {
         todayScore: data.data.score || data.data.todayScore,
         keyData: data.data.keyData,
+        userInfos: data.data.userInfos,
       };
 
       // console.log('Formatted data main:', formattedData);

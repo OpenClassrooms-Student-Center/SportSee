@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
+// import { useQuery } from 'react-query';
 import Alimentation from './components/alimentation.js';
 import Bonjour from './components/bonjour.js';
 import HorizontalNav from './components/horizontalNav.js';
@@ -107,6 +107,23 @@ function App() {
     fetchData();
   }, [userId, isMocked]);
 
+  // Bonjour DTO //
+  const [bonjourDto, setBonjourDto] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const provider = isMocked ? new DataProviderMock() : new DataProvider();
+        const result = await provider.getMainData(userId);
+
+        setBonjourDto(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, [userId, isMocked]);
+
   const alimentation = alimentationDto
     ? [
         {
@@ -135,13 +152,14 @@ function App() {
         },
       ]
     : [];
-
+  console.log(bonjourDto);
   if (
     !barChartGraphDto ||
     !lineChartGraphDto ||
     !radarChartGraphDto ||
     !radialChartGraphDto ||
-    !alimentationDto
+    !alimentationDto ||
+    !bonjourDto
   ) {
     return null;
   }
@@ -152,7 +170,7 @@ function App() {
       <div className='body-container'>
         <VerticalNav />
         <div className='layout-container'>
-          <Bonjour />
+          <Bonjour firstName={bonjourDto.graphData.userInfos.firstName} />
           <div className='charts-container'>
             <div className='layout-charts-global-container'>
               <BarChartGraph

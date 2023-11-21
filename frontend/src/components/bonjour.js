@@ -17,11 +17,11 @@ const user = [
   },
 ];
 
-function Bonjour() {
+function Bonjour(props) {
   return (
     <div className='bonjour'>
       <div className='bonjour-title'>
-        Bonjour <div className='prénom'>{user[0].userInfos.firstName}</div>
+        Bonjour <div className='prénom'>{props.firstName}</div>
       </div>
       <p className='message'>
         Félicitations ! Vous avez explosé vos objectifs hier 👏
