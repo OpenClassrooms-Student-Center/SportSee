@@ -1,7 +1,7 @@
 import './App.css';
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import { useQuery } from 'react-query';
+import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
 import Alimentation from './components/alimentation.js';
 import Bonjour from './components/bonjour.js';
 import HorizontalNav from './components/horizontalNav.js';
@@ -16,115 +16,77 @@ import img3 from './img/carbs-icon.png';
 import img4 from './img/fat-icon.png';
 import { DataProvider } from './dataProvider/dataProvider.js';
 import { DataProviderMock } from './dataProvider/dataProvider.js';
+import PuffLoader from 'react-spinners/PuffLoader';
 
 function App() {
   const { userId } = useParams();
   const isMocked = new URLSearchParams(window.location.search).get('isMock');
+  const {
+    data: queryResults,
+    isLoading,
+    isFetching,
+  } = useQuery(['allData', userId, isMocked], async () => {
+    const provider = isMocked ? new DataProviderMock() : new DataProvider();
 
-  // Bar Chart DTO  //
+    const barChartPromise = provider.getActivity(userId);
+    const lineChartPromise = provider.getSessions(userId);
+    const radarChartPromise = provider.getPerformance(userId);
+    const radialChartPromise = provider.getMainData(userId);
+    const alimentationPromise = provider.getMainData(userId);
 
-  const [barChartGraphDto, setBarChartGraphDto] = useState(null);
+    const [
+      barChartGraphDto,
+      lineChartGraphDto,
+      radarChartGraphDto,
+      radialChartGraphDto,
+      alimentationDto,
+    ] = await Promise.all([
+      barChartPromise,
+      lineChartPromise,
+      radarChartPromise,
+      radialChartPromise,
+      alimentationPromise,
+    ]);
+
+    return {
+      barChartGraphDto,
+      lineChartGraphDto,
+      radarChartGraphDto,
+      radialChartGraphDto,
+      alimentationDto,
+    };
+  });
+
+  // LOADER //
+
+  const [showLoading, setShowLoading] = useState(isLoading);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const provider = isMocked ? new DataProviderMock() : new DataProvider();
-        const result = await provider.getActivity(userId);
-        setBarChartGraphDto(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [userId, isMocked]);
+    const delay = setTimeout(() => {
+      setShowLoading(isLoading);
+    }, 3000);
 
-  // Line Chart DTO  //
+    // délai off lorsque isFetching devient faux
+    return () => clearTimeout(delay);
+  }, [isLoading, isFetching]);
 
-  const [lineChartGraphDto, setLineChartGraphDto] = useState(null);
+  if (showLoading) {
+    return (
+      <div className='loader'>
+        <PuffLoader color='#FF0000' />
+      </div>
+    );
+  }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const provider = isMocked ? new DataProviderMock() : new DataProvider();
-        const result = await provider.getSessions(userId);
-        setLineChartGraphDto(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [userId, isMocked]);
+  const {
+    barChartGraphDto,
+    lineChartGraphDto,
+    radarChartGraphDto,
+    radialChartGraphDto,
+    alimentationDto,
+  } = queryResults;
 
-  // Radar Chart DTO  //
-
-  const [radarChartGraphDto, setRadarChartGraphDto] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const provider = isMocked ? new DataProviderMock() : new DataProvider();
-        const result = await provider.getPerformance(userId);
-        setRadarChartGraphDto(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [userId, isMocked]);
-
-  // Radial Chart DTO  //
-
-  const [radialChartGraphDto, setRadialChartGraphDto] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const provider = isMocked ? new DataProviderMock() : new DataProvider();
-        const result = await provider.getMainData(userId);
-        setRadialChartGraphDto(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [userId, isMocked]);
-
-  // Alimentation Chart DTO  //
-
-  const [alimentationDto, setAlimentationDto] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const provider = isMocked ? new DataProviderMock() : new DataProvider();
-        const result = await provider.getMainData(userId);
-
-        setAlimentationDto(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [userId, isMocked]);
-
-  // Bonjour DTO //
-  const [bonjourDto, setBonjourDto] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const provider = isMocked ? new DataProviderMock() : new DataProvider();
-        const result = await provider.getMainData(userId);
-
-        setBonjourDto(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [userId, isMocked]);
-
-  const alimentation = alimentationDto
+  const alimentationData = alimentationDto
     ? [
         {
           key: 'calorie',
@@ -152,17 +114,6 @@ function App() {
         },
       ]
     : [];
-  console.log(bonjourDto);
-  if (
-    !barChartGraphDto ||
-    !lineChartGraphDto ||
-    !radarChartGraphDto ||
-    !radialChartGraphDto ||
-    !alimentationDto ||
-    !bonjourDto
-  ) {
-    return null;
-  }
 
   return (
     <div className='App'>
@@ -170,7 +121,7 @@ function App() {
       <div className='body-container'>
         <VerticalNav />
         <div className='layout-container'>
-          <Bonjour firstName={bonjourDto.graphData.userInfos.firstName} />
+          <Bonjour firstName={alimentationDto.graphData.userInfos.firstName} />
           <div className='charts-container'>
             <div className='layout-charts-global-container'>
               <BarChartGraph
@@ -187,7 +138,7 @@ function App() {
               </div>
             </div>
             <div className='alimentation-container'>
-              {alimentation.map((provider) => (
+              {alimentationData.map((provider) => (
                 <Alimentation
                   key={provider.key}
                   src={provider.imgSrc}
