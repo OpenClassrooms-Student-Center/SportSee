@@ -8,7 +8,7 @@ const RadialChart = ({ graphData }) => {
 
   const endAngle =
     minAngle + (graphData.todayScore * (maxAngle - minAngle)) / 1;
-  console.log(graphData);
+
   const startAngle = 180;
   return (
     <div className='radial-chart'>

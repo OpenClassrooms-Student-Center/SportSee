@@ -35,14 +35,15 @@ class RadialChartDTO {
     this.graphData = data;
   }
 }
-// class AlimentationDTO {
-//   constructor(data) {
-//     this.calorieCount = data.keyData.calorieCount;
-//     this.carbohydrateCount = data.keyData.carbohydrateCount;
-//     this.lipidCount = data.keyData.lipidCount;
-//     this.proteinCount = data.keyData.proteinCount;
-//   }
-// }
+class MainDataDTO {
+  constructor(data) {
+    // this.calorieCount = data.keyData.calorieCount;
+    // this.carbohydrateCount = data.keyData.carbohydrateCount;
+    // this.lipidCount = data.keyData.lipidCount;
+    // this.proteinCount = data.keyData.proteinCount;
+    this.graphData = data;
+  }
+}
 
 const graphDataActivity = [
   {
@@ -219,9 +220,9 @@ class DataProviderMock {
     });
   }
   getMainData() {
+    console.log('DTO Mock:', new MainDataDTO(graphDataMain[0]));
     return new Promise((resolve) => {
-      resolve(new RadialChartDTO(graphDataMain[0]));
-      console.log(new RadialChartDTO(graphDataMain[0]));
+      resolve(new MainDataDTO(graphDataMain[0]));
     });
   }
 }
@@ -292,10 +293,14 @@ class DataProvider {
 
       const formattedData = {
         todayScore: data.data.score || data.data.todayScore,
+        keyData: data.data.keyData,
       };
+
+      console.log(data);
+
       console.log('Formatted data main:', formattedData);
-      console.log('Result DTO:', new RadialChartDTO(formattedData));
-      return new RadialChartDTO(formattedData);
+      console.log('Result DTO main:', new MainDataDTO(formattedData));
+      return new MainDataDTO(formattedData);
     } catch (error) {
       console.error('Erreur lors de la récupération des données :', error);
     }

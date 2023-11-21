@@ -98,6 +98,7 @@ function App() {
       try {
         const provider = isMocked ? new DataProviderMock() : new DataProvider();
         const result = await provider.getMainData(userId);
+
         setAlimentationDto(result);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -106,14 +107,45 @@ function App() {
     fetchData();
   }, [userId, isMocked]);
 
+  const alimentation = alimentationDto
+    ? [
+        {
+          key: 'calorie',
+          title: 'Calories',
+          imgSrc: img1,
+          data: alimentationDto.graphData.keyData.calorieCount + 'kCal',
+        },
+        {
+          key: 'protein',
+          title: 'Protéines',
+          imgSrc: img2,
+          data: alimentationDto.graphData.keyData.carbohydrateCount + 'g',
+        },
+        {
+          key: 'carbohydrate',
+          title: 'Glucides',
+          imgSrc: img3,
+          data: alimentationDto.graphData.keyData.lipidCount + 'g',
+        },
+        {
+          key: 'lipid',
+          title: 'Lipides',
+          imgSrc: img4,
+          data: alimentationDto.graphData.keyData.proteinCount + 'g',
+        },
+      ]
+    : [];
+
   if (
     !barChartGraphDto ||
     !lineChartGraphDto ||
     !radarChartGraphDto ||
-    !radialChartGraphDto
+    !radialChartGraphDto ||
+    !alimentationDto
   ) {
     return null;
   }
+
   return (
     <div className='App'>
       <HorizontalNav />
@@ -137,14 +169,14 @@ function App() {
               </div>
             </div>
             <div className='alimentation-container'>
-              <Alimentation
-                src={img1}
-                title='Calories'
-                amount={8300 + 'kCal'}
-              />
-              <Alimentation src={img2} title='Protéines' amount={2 + 'g'} />
-              <Alimentation src={img3} title='Glucides' amount={2 + 'g'} />
-              <Alimentation src={img4} title='Lipides' amount={2 + 'g'} />
+              {alimentation.map((provider) => (
+                <Alimentation
+                  key={provider.key}
+                  src={provider.imgSrc}
+                  title={provider.title}
+                  amount={provider.data}
+                />
+              ))}
             </div>
           </div>
         </div>
