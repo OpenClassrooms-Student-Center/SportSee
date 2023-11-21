@@ -289,17 +289,15 @@ class DataProvider {
     try {
       const response = await fetch(`http://localhost:3000/user/${userId}`);
       const data = await response.json();
-      console.log('Raw data main:', data);
+      // console.log('Raw data main:', data);
 
       const formattedData = {
         todayScore: data.data.score || data.data.todayScore,
         keyData: data.data.keyData,
       };
 
-      console.log(data);
-
-      console.log('Formatted data main:', formattedData);
-      console.log('Result DTO main:', new MainDataDTO(formattedData));
+      // console.log('Formatted data main:', formattedData);
+      // console.log('Result DTO main:', new MainDataDTO(formattedData));
       return new MainDataDTO(formattedData);
     } catch (error) {
       console.error('Erreur lors de la récupération des données :', error);
