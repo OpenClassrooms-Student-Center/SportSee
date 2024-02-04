@@ -1,0 +1,8 @@
+.radar-component-container {
+  background-color: #282d30;
+  box-sizing: border-box;
+  border-radius: 5px;
+  grid-column: 4 / 7;
+  grid-row: 4 / 6;
+  padding: 0;
+}

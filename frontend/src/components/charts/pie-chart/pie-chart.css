@@ -1,0 +1,41 @@
+.pieChart-component-container {
+  grid-column: 7 / 10;
+  grid-row: 4 / 6;
+  padding: 0;
+}
+
+.pie-chart-container {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.score-title {
+  font-size: 14px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.progress-text {
+  align-items: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 50%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+}
+
+.percent-progress {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.progress-text-complement {
+  color: #74798c;
+  font-size: 15px;
+}

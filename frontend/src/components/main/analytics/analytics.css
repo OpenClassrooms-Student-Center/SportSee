@@ -1,0 +1,32 @@
+main {
+  margin: 50px 50px 50px 167px;
+  height: 600px;
+}
+
+/* Main */
+
+.hello-user {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.firstname {
+  color: red;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.analytics-element {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.hello-component-container {
+  grid-column: 1 / 14;
+  grid-row: 1 / 1;
+}

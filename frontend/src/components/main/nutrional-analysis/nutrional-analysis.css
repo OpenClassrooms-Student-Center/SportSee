@@ -1,0 +1,44 @@
+.nutritional-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-column: 11 / 14;
+  grid-row: 2 / 5;
+  justify-content: space-between;
+  height: 440px;
+  width: 200px;
+}
+
+.nutritional-panel {
+  align-items: center;
+  background-color: #fbfbfb;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  width: 100%;
+}
+
+.nutritional-data {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 70%;
+}
+
+.macro-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.nutritional-value {
+  color: #282d30;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.nutritional-label {
+  color: #74798c;
+  font-size: 14px;
+}
