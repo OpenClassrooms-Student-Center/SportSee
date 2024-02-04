@@ -1,0 +1,38 @@
+/* Navbar */
+
+.vertical-navbar {
+  align-items: center;
+  background-color: black;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: fixed;
+  width: 117px;
+  z-index: -1;
+}
+
+.navbar-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
+  min-height: 300px;
+  position: fixed;
+  top: 25%;
+  width: 64px;
+}
+
+.navbar-icon {
+  height: 64px;
+  width: 64px;
+}
+
+.copyright {
+  bottom: 15%;
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  rotate: 270deg;
+  width: 160px;
+}

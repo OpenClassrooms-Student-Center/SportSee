@@ -1,11 +1,12 @@
-import "./style.css";
+import "../../style.css";
+import "./nutrional-analysis.css";
 import React from "react";
 
 const NutritionalAnalysis = ({ image, label, value }) => {
   return (
     <div className="nutritional-panel">
       <img
-        src={require(`../images/${image}`)}
+        src={require(`./nutrional-analysis-images/${image}`)}
         alt="Icone du macronutriment"
         className="macro-icon"
       />

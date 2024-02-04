@@ -1,5 +1,6 @@
 import React from "react";
 import { Pie, PieChart, ResponsiveContainer, Cell } from "recharts";
+import "./pie-chart.css";
 
 const PieChartComponent = ({ score }) => {
   let scorePercent = score * 100;
@@ -16,8 +17,8 @@ const PieChartComponent = ({ score }) => {
         <PieChart>
           <Pie
             data={data}
-            innerRadius={60}
-            outerRadius={70}
+            innerRadius={50}
+            outerRadius={60}
             dataKey="value"
             startAngle={-180}
             cornerRadius={20}

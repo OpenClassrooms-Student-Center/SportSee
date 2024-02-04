@@ -1,0 +1,26 @@
+header {
+  align-items: center;
+  background-color: black;
+  display: flex;
+}
+
+.logo-container {
+  width: 20%;
+}
+
+.logo {
+  margin: 10px 20px;
+  width: 70%;
+}
+
+.horizontal-navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.horizontal-navbar-link {
+  color: white;
+  font-size: 20px;
+  width: auto;
+}

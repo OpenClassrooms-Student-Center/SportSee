@@ -1,7 +1,7 @@
 import React from "react";
-import Analytics from "./components/Analytics";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import Header from "./components/header/Header";
+import Analytics from "./components/main/analytics/Analytics";
+import Navbar from "./components/navbar/Navbar";
 
 const App = () => {
   return (

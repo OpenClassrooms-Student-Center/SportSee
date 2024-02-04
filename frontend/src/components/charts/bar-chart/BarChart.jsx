@@ -9,13 +9,12 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import apiService from "../apiService";
-import { ReactComponent as BlackCircle } from "../images/point-noir.svg";
-import { ReactComponent as RedCircle } from "../images/point-rouge.svg";
+import apiService from "../../../apiService";
+import { ReactComponent as BlackCircle } from "./bar-chart-images/point-noir.svg";
+import { ReactComponent as RedCircle } from "./bar-chart-images/point-rouge.svg";
+import "./bar-chart.css";
 
 const BarChartComponent = () => {
-  // const pathName = window.location.pathname;
-  // const userId = pathName.split("/")[2];
   const userId = process.env.REACT_APP_USER_ID;
   const [activity, setActivity] = useState();
   const [minWeight, setMinWeight] = useState(null);

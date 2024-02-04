@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import apiService from "../apiService";
-import AreaChartComponent from "./AreaChart";
-import LineChartComponent from "./LineChart";
-import BarChartComponent from "./BarChart";
-import Hello from "./Hello";
-import NutritionalAnalysis from "./NutritionalAnalysis";
-import PieChartComponent from "./PieChart";
-import RadarChartComponent from "./RadarChart";
-import "./style.css";
+import apiService from "../../../apiService";
+import BarChartComponent from "../../charts/bar-chart/BarChart";
+import LineChartComponent from "../../charts/line-chart/LineChart";
+import PieChartComponent from "../../charts/pie-chart/PieChart";
+import RadarChartComponent from "../../charts/radar-chart/RadarChart";
+import "../../style.css";
+import Hello from "../hello/Hello";
+import NutritionalAnalysis from "../nutrional-analysis/NutritionalAnalysis";
+import "./analytics.css";
 
 const Analytics = () => {
-  // const pathName = window.location.pathname;
-  // const userId = pathName.split("/")[2];
   const userId = process.env.REACT_APP_USER_ID;
   const [firstname, setFirstname] = useState();
   const [calories, setCalories] = useState();
@@ -64,7 +62,7 @@ const Analytics = () => {
           value={`${fat}g`}
         />
       </div>
-      <div className="analytics-element item4">
+      <div className="analytics-element lineChart-component-container">
         <LineChartComponent />
       </div>
       <div className="analytics-element radar-component-container">

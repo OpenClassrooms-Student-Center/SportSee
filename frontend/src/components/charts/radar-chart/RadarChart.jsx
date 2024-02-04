@@ -7,12 +7,9 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import apiService from "../apiService";
-
+import apiService from "../../../apiService";
+import "./radar-chart.css";
 const RadarChartComponent = () => {
-  // const pathName = window.location.pathname;
-  // const userId = pathName.split("/")[2];
-
   const userId = process.env.REACT_APP_USER_ID;
   const [data, setData] = useState([]);
 
